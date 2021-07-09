@@ -59,7 +59,7 @@ Skip this step if you aldready have the arduino IDE installed. If you dont have 
 
 Once downloaded, copy the following code and paste it in the ```code goes here``` section.
 
-```arduino
+```C++
 void setup() {
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(LED_BUILTIN, OUTPUT);
