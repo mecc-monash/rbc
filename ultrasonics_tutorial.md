@@ -3,12 +3,12 @@
 In this tutorial we will learn how to use the ultrasonic sensor provided with the arduino to get accurate distance measurements.
 
 # Table of Contents
-1. [How it works?](#How-it-works?)
-2. [How to use it?](#How-to-use-it?)
+1. [How it works](#How-it-works)
+2. [How to use it](#How-to-use-it)
 3. [Final Code](#Final-Code)
 
 <p align="center">
-    <img src="./images/ultr_sensor.jpeg">
+    <img width="460" src="./images/ultr_sensor.jpeg">
 </p>
 
 #### Pins to remember
@@ -20,15 +20,15 @@ Echo: Output the time in microseconds
 
 Gnd: Ground
 
-## How it works?
+## How it works
 The transmitter of the ultrasonic sensor emits a signal at 40,000 Hz in the form of an 8 cycle sonic burst. This signal travels through air at the speed of sound. Therefore, considering the travel time and the speed of the sound you can calculate the distance!
 
 <p align="center">
-    <img src="./images/ultr_working.jpeg">
+    <img width="600" src="./images/ultr_working.jpeg">
 </p>
 
 
-## How to use it?
+## How to use it
 We will be using the Arduino Uno as our microcontroller for this competition, therefore this tutorial will be using Arduino code.
 
 ### Step 1. Wiring the sensor up
@@ -43,7 +43,7 @@ Gnd |  Gnd       |
 Here is a schematic for reference.
 
 <p align="center">
-    <img src="./images/ultr_circuit.png">
+    <img height="400" src="./images/ultr_circuit.png">
 </p>
 
 ### Step 2. Set up your environment
@@ -92,7 +92,7 @@ Upload and run the arduino script and check if everything works!
 To create the 8 signal burst, talked about previously, we have to set the Trig on a High State for 10 µs. Once the transmitted signal is recieved, the Echo pin will output the time in microseconds the sound wave took to travel back.
 
 Create a new arduino code window and initialise the pins using:
-```arduino
+```C++
 // defines pins numbers
 const int trigPin = 9;
 const int echoPin = 10;
@@ -106,7 +106,7 @@ Arduino requires two functions for the script to work, a ```void setup()``` and 
 
 Create the setup function to set pin modes and establish serial comminucation with the serial moitor.
 
-```arduino
+```C++
 void setup() {
     pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
     pinMode(echoPin, INPUT); // Sets the echoPin as an Input
@@ -125,7 +125,7 @@ Now to continuously calculate (infinitely) the distance to an object we have to 
 - Print the distance to the serial monitor.
 
 Let's start by creating a ```void loop()``` function and clear the trigger pin to make sure its set to low.
-```arduino
+```C++
 void loop()
 {
     // Clears the trigPin
@@ -135,7 +135,7 @@ void loop()
 ```
 
 Now, to send the ultrasonic pulse lets set the trigger pin to high and then reset it.
-```arduino
+```C++
 void loop()
 {
     // Clears the trigPin
@@ -150,7 +150,7 @@ void loop()
 ```
 
 All we have to do now is read the echo pin and display the result on the serial monitor.
-```arduino
+```C++
 void loop()
 {
     // Clears the trigPin
@@ -173,7 +173,7 @@ void loop()
 
 But what you will get from the Echo pin will be double that number because the sound wave needs to travel forward and bounce backward.  So in order to get the distance in cm we need to multiply the received travel time value from the echo pin by 0.034 cm/us (speed of souund) and divide it by 2.
 
-```arduino
+```C++
 void loop()
 {
     // Clears the trigPin
@@ -200,7 +200,7 @@ void loop()
 **All you have to do is upload your code and off you go calculating distances!**
 
 ## Final Code
-```arduino
+```C++
 // defines pins numbers
 const int trigPin = 9;
 const int echoPin = 10;
@@ -235,5 +235,33 @@ void loop()
     // Prints the distance on the Serial Monitor
     Serial.print("Distance: ");
     Serial.println(distance);
+}
+```
+
+## Using the NewPing library
+
+To make your code a lot cleaner, you could also use the NewPing library or code up a more object oriented program yourself.
+
+For more details check out https://playground.arduino.cc/Code/NewPing/.
+
+### Implementation
+```C++
+#include <NewPing.h>
+ 
+#define TRIGGER_PIN  12
+#define ECHO_PIN     11
+#define MAX_DISTANCE 200
+ 
+NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
+ 
+void setup() {
+  Serial.begin(115200);
+}
+ 
+void loop() {
+  delay(50);
+  Serial.print("Ping: ");
+  Serial.print(sonar.ping_cm());
+  Serial.println("cm");
 }
 ```
