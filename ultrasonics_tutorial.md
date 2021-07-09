@@ -3,9 +3,10 @@
 In this tutorial we will learn how to use the ultrasonic sensor provided with the arduino to get accurate distance measurements.
 
 # Table of Contents
-1. [How it works](#How-it-works)
-2. [How to use it](#How-to-use-it)
+1. [How it works?](#How-it-works)
+2. [How to use it?](#How-to-use-it)
 3. [Final Code](#Final-Code)
+4. [The NewPing Library](#Using-the-NewPing-library)
 
 <p align="center">
     <img width="460" src="./images/ultr_sensor.jpeg">
