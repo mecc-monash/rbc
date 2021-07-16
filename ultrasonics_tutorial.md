@@ -1,4 +1,4 @@
-# RBC ultrasonic sensor turorial
+# Tutorial 2: Ultrasonic Sensors
 
 In this tutorial we will learn how to use the ultrasonic sensor provided with the arduino to get accurate distance measurements.
 
