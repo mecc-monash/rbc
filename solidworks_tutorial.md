@@ -1,7 +1,7 @@
 # Tutorial 1 - CAD (3D Modelling)
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/7232997/126315130-3b86152c-85ef-4d06-b10f-1907389f9dc2.PNG" width="50%" style="align:centre">
+	<img src="https://user-images.githubusercontent.com/7232997/126315130-3b86152c-85ef-4d06-b10f-1907389f9dc2.PNG" width="50%" style="align:centre">
 </p>
 
 ## Introduction
@@ -9,6 +9,8 @@ In this tutorial, you will be introduced to Solidworks, a CAD program used to cr
 We will show you how to create a mount (see above) for the colour sensors that you can use on your robot. We will 3D print one design per team.
 
 ## Installation/Setup
+
+You can install SolidWorks Student Edition from https://www.monash.edu/esolutions/software/catalogue if you have Windows, otherwise you can use MoVE (move.monash.edu) to use SolidWorks.
 
 ## Creating the mount
 
