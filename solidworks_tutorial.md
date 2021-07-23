@@ -1,8 +1,10 @@
 # Tutorial 1 - CAD (3D Modelling)
 
-<p align="center">
-	<img src="https://user-images.githubusercontent.com/7232997/126315130-3b86152c-85ef-4d06-b10f-1907389f9dc2.PNG" width="50%" style="align:centre">
-</p>
+<img src="https://user-images.githubusercontent.com/7232997/126315130-3b86152c-85ef-4d06-b10f-1907389f9dc2.PNG" width="50%" style="align:centre">
+
+![](images/cad/robot.PNG)
+<!-- <p align="center"> -->
+<!-- </p> -->
 
 ## Introduction
 In this tutorial, you will be introduced to Solidworks, a CAD program used to create 3D models.
@@ -115,7 +117,7 @@ This step takes the 2D sketch and creates a 3D part by stretching it.
 We will use the Hole Wizard tool to create standard size screw holes. We could use our own sketch to create holes for screws, and dimension them ourselves...but
 it’s just much cooler (and perhaps easier, faster, and simpler) this way.
 
-- Make sure the bottom face is selected. (The one without the cuts)
+- Make sure the top face is selected. (The one with the cuts)
 - In the Features tab, click on the Hole Wizard tool.
 - Choose Standard: AS, Type: Mushroom Head Screw.
 - Make sure Hole Type is Counterbore
@@ -125,7 +127,6 @@ it’s just much cooler (and perhaps easier, faster, and simpler) this way.
 
 - Click onto the Positions tab in the Property Manager.
 - Click on the part to place two holes near the bottom.
-![](images/cad/22_holesplaced.PNG)
 - Create a centreline and dimension the holes as below
 ![](images/cad/23_holesdim.PNG)
 
