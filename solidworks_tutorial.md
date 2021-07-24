@@ -1,14 +1,13 @@
 # Tutorial 1 - CAD (3D Modelling)
 
-<img src="https://user-images.githubusercontent.com/7232997/126315130-3b86152c-85ef-4d06-b10f-1907389f9dc2.PNG" width="50%" style="align:centre">
-
-![](images/cad/robot.PNG)
-<!-- <p align="center"> -->
-<!-- </p> -->
+<p>
+	<img src="https://user-images.githubusercontent.com/7232997/126315130-3b86152c-85ef-4d06-b10f-1907389f9dc2.PNG" width="40%" style="align:left" />
+	<img src="https://user-images.githubusercontent.com/7232997/126862253-a2f153a5-a34b-42e0-9a00-5f8defa86141.PNG" style="align:centre" width="50%">		    
+</p>
 
 ## Introduction
 In this tutorial, you will be introduced to Solidworks, a CAD program used to create 3D models.
-We will show you how to create a mount (see above) for the colour sensors that you can use on your robot. We will 3D print one design per team.
+We will show you how to create a mount (see above left) for the colour sensors that you can use on your robot. We will 3D print one design per team.
 
 ## Installation/Setup
 
