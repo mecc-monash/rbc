@@ -1,10 +1,19 @@
-# RBC ultrasonic sensor turorial
+# Tutorial 2 - RBC sensors turorial
 
 In this tutorial we will learn how to use sensors along with an Arduino to percieve the environment. We will start by setting up your programming environment and end with a mini-project to better understand sensor fusion.
 
 # Table of Contents
 1. [Introduction](#Introduction)
-2. [Ultrasonic Sensor](#Ultrasonic-Sensor)
+2. [Set up your Arduino environment](#Set-up-your-Arduino-environment)
+    
+    2.1. [Arduino theory](#Arduino-theory)
+
+3. [Ultrasonic Sensor](#Ultrasonic-Sensor)
+4. [Colour Sensor](#Colour-Sensor)
+    
+    4.1. [Procesing values](#Procesing-values)
+    
+    4.2. [Calibration](#Calibration)
 
 
 # Introduction
