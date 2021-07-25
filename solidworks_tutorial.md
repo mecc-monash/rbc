@@ -164,7 +164,7 @@ You can use an Extruded Cut to add some text with your team name to the top of y
 
 ## Submission Details
 
-Please upload your Solidworks part to the [Google Drive folder]() by ***. Make sure that the file name includes your team name if you have one, or your own name if you do not. Late submissions cannot be accepted as it will take time to 3D print the models: we will supply your team with a standard part in this case.
+Please upload your Solidworks part using the [Google Form](https://forms.gle/UbffzJmYDf7ooS9z8) by 11:59pm Sunday August 1. Make sure that the file name includes your team name if you have one, or your own name if you do not. Late submissions cannot be accepted as it will take time to 3D print the models: we will supply your team with a standard part in this case.
 
 ## Looking for more CAD?
 
