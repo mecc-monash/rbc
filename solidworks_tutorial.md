@@ -133,7 +133,7 @@ it’s just much cooler (and perhaps easier, faster, and simpler) this way.
 
 - Use the Extruded Cut tool
 - Sketch the cutouts
-	- Draw a rectangle flush with the edge on the left and dimension it as apprpriate (4mm x 10.5mm).
+	- Draw a rectangle flush with the edge on the left and dimension it as appropriate (4mm x 10.5mm).
 	- Create a centreline in the middle of the cavity, and another in the middle of the part.
 	![](images/cad/24_slotsetup.PNG)
 	- Mirror the rectangle about the small centreline, then mirror the two rectangles about the larger centreline.
