@@ -160,7 +160,7 @@ Once you have completed this step, your part is done and you can get a demonstra
 
 **9. Optional: Add text**
 
-You can use an Extruded Cut to add some text with your team name to the top of your model if you wish. Try to stick to simple text or it is likely to become illegible when printed.
+You can use an Extruded Cut to add some text with your team name to the top of your model if you wish. Try to stick to simple text or it is likely to become illegible when printed. A good position for the text is between the two screw holes on the top of the part (same side with the sensor cutouts).
 
 ## Submission Details
 
