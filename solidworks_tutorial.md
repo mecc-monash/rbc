@@ -133,7 +133,7 @@ it’s just much cooler (and perhaps easier, faster, and simpler) this way.
 
 - Use the Extruded Cut tool
 - Sketch the cutouts
-	- Draw a rectangle flush with the edge on the left and dimension it as apprpriate (4mm x 10.5mm).
+	- Draw a rectangle flush with the edge on the left and dimension it as appropriate (4mm x 10.5mm).
 	- Create a centreline in the middle of the cavity, and another in the middle of the part.
 	![](images/cad/24_slotsetup.PNG)
 	- Mirror the rectangle about the small centreline, then mirror the two rectangles about the larger centreline.
@@ -160,7 +160,7 @@ Once you have completed this step, your part is done and you can get a demonstra
 
 **9. Optional: Add text**
 
-You can use an Extruded Cut to add some text with your team name to the top of your model if you wish. Try to stick to simple text or it is likely to become illegible when printed.
+You can use an Extruded Cut to add some text with your team name to the top of your model if you wish. Try to stick to simple text or it is likely to become illegible when printed. A good position for the text is between the two screw holes on the top of the part (same side with the sensor cutouts).
 
 ## Submission Details
 
