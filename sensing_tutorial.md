@@ -486,8 +486,8 @@ new frequency = map(frequency, 25, 70, 0, 255)
 
 Do the same with green and blue. This will then produce an appropriate RGB value, we can then go online to any RGB value website (there’s one suggested in the references) and select the values that you need for the competition. Make sure you test the accuracy of your calibration with various colours to determine how well it works. If it doesn’t work well, you might need to redo your calibration.
 
-# Workshop Challenge
-Now that you know how to use the ultrasonic and colour sensor induvidually, here's a small challenge which requires you to use them in conjuction. 
+# Workshop Challenge (optional)
+Now that you know how to use the ultrasonic and colour sensor individually, here's a small challenge which requires you to use them in conjuction. 
 
 ### Task
 A demonstrator would place a piece of paper in front of the ultrasonic sensor at different distances (close, medium, and far). Your task is to detect this distance and light an RGB-LED with the appropriate colour as shown in the table below.
@@ -498,4 +498,4 @@ Close    |  0-5 cm          |  RED  |
 Medium   |  6-10 cm         | GREEN |
 Far      |  11-15 cm        | BLUE  |
 
-Now that an LED is lit up with one of the above colours, you have to use the LED as an input to the colour sensor, guess which colour has been lit up, and hence print the distance to the terminal. A demonstrator would go through your code and ask questions to mark your understanding.
+Now that an LED is lit up with one of the above colours, you have to use the LED as an input to the colour sensor, guess which colour has been lit up, and hence print the distance to the terminal.
