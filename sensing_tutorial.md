@@ -1,4 +1,4 @@
-# Tutorial 2 - RBC sensors turorial
+# Tutorial 2 - RBC Arduino + Sensors Tutorial
 
 In this tutorial we will learn how to use sensors along with an Arduino to percieve the environment. We will start by setting up your programming environment and end with a mini-project to better understand sensor fusion.
 
