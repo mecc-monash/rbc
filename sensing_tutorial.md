@@ -4,16 +4,20 @@ In this tutorial we will learn how to use sensors along with an Arduino to perci
 
 # Table of Contents
 1. [Introduction](#Introduction)
+
 2. [Set up your Arduino environment](#Set-up-your-Arduino-environment)
     
     2.1. [Arduino theory](#Arduino-theory)
 
 3. [Ultrasonic Sensor](#Ultrasonic-Sensor)
+
 4. [Colour Sensor](#Colour-Sensor)
     
     4.1. [Procesing values](#Procesing-values)
     
     4.2. [Calibration](#Calibration)
+
+5. [Workshop Challenge](#Workshop-Challenge)
 
 
 # Introduction
@@ -35,7 +39,7 @@ As we would be dealing with an ultrasonic and a colour sensor, only these sensor
 - Variety of jumper cables
 
 # Set up your Arduino environment
-Skip this step if you aldready have the arduino IDE installed. If you dont have the IDE:
+Skip this step if you already have the arduino IDE installed. If you dont have the IDE:
 
 - Go to https://www.arduino.cc/en/software
 - Select the IDE suitable to your operating system.
@@ -344,13 +348,13 @@ Pin | on arduino | Description |
 Vcc |  5V        | Input power, required to provide power to sensor. |
 Gnd |  Gnd       | Ground pin, used as refrence voltage |
 OC  |  Gnd       | Output enable, need to be pulled low in order to enable the sensor |
-OUT |  Pin 10    | Output of the sensor, a PWM signal (variable frequency) depending of which colour is sensed |
+OUT |  Pin 8    | Output of the sensor, a PWM signal (variable frequency) depending of which colour is sensed |
 S0  | Pin 4      | Used to scale output frequency - keep reading for an expression |
 S1  | Pin 5      | Used to scale output frequency |
 S2  | Pin 6      | Used to select which filter we apply. These two pin logic control which colour sensor light intensity is to be measured |
 S3  | Pin 7      | Used to select which filter we apply |
 
-Using control pins S2 and S3, we can select which of the photodiodes to read form. The following table can be used to determine which ones we read from. For example, if I want to read from the red photodiode, I would set S2 and S3 LOW (0V on those pins).
+From the table below, it can be seen that by using control pins S2 and S3 we can choose which photobodies to read from. For example, if I want to read from the red photodiode, I would set S2 and S3 LOW (0V on those pins).
 
 S2  |  S3 | Photodiode Type   |
 --- | --- | ----------------- |
@@ -447,7 +451,7 @@ void loop() {
 ```
 
 #### Procesing values
-We now have to think about turning the values we recieve from the colour sensor into information that we understand and that we can use to make decisions for our robot. This means converting the frequencies into RGB values which we can use to figure out which colour it is. 
+We now have to think about turning the values we receive from the colour sensor into information that we understand and that we can use to make decisions for our robot. This means converting the frequencies into RGB values which we can use to figure out which colour it is. 
 
 To do this, we must first calibrate our sensor. Point the sensor into a direction where there is nothing in front of it and note down the values being printed.
 
@@ -481,3 +485,17 @@ new frequency = map(frequency, 25, 70, 0, 255)
 ```
 
 Do the same with green and blue. This will then produce an appropriate RGB value, we can then go online to any RGB value website (there’s one suggested in the references) and select the values that you need for the competition. Make sure you test the accuracy of your calibration with various colours to determine how well it works. If it doesn’t work well, you might need to redo your calibration.
+
+# Workshop Challenge
+Now that you know how to use the ultrasonic and colour sensor induvidually, here's a small challenge which requires you to use them in conjuction. 
+
+### Task
+A demonstrator would place a piece of paper in front of the ultrasonic sensor at different distances (close, medium, and far). Your task is to detect this distance and light an RGB-LED with the appropriate colour as shown in the table below.
+
+Distance | Distance (cm)    |  LED  |
+---------| ---------------- | ----- | 
+Close    |  0-5 cm          |  RED  |
+Medium   |  6-10 cm         | GREEN |
+Far      |  11-15 cm        | BLUE  |
+
+Now that an LED is lit up with one of the above colours, you have to use the LED as an input to the colour sensor, guess which colour has been lit up, and hence print the distance to the terminal. A demonstrator would go through your code and ask questions to mark your understanding.
