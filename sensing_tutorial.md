@@ -159,8 +159,8 @@ To create the 8 signal burst, talked about previously, we have to set the Trig o
 Create a new arduino code window and initialise the pins using:
 ```C++
 // defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
+const int trigPin = 10;
+const int echoPin = 9;
 
 // defines variables
 long duration;
@@ -267,8 +267,8 @@ void loop()
 #### Final Code
 ```C++
 // defines pins numbers
-const int trigPin = 9;
-const int echoPin = 10;
+const int trigPin = 10;
+const int echoPin = 9;
 
 // defines variables
 long duration;
@@ -320,7 +320,7 @@ For more details check out https://playground.arduino.cc/Code/NewPing/.
 NewPing sonar(TRIGGER_PIN, ECHO_PIN, MAX_DISTANCE);
  
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600);
 }
  
 void loop() {
