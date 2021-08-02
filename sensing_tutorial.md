@@ -49,6 +49,7 @@ Skip this step if you already have the Arduino IDE installed. If you don't have 
 </p>
 # Troubleshooting 
 If you are plugging in your Arduino and the COM is not recognised try these steps: (For Windows)
+
 1. Open Arduino and check you have selected the correct board under Tools -> Board -> Arduino Uno
  
 2. Open Device manager and scroll down to "Ports (Com and LPT)" Is the Arduino there? Are you selecting the correct port? 
