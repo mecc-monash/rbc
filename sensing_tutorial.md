@@ -1,4 +1,4 @@
-# Tutorial 2 - RBC Arduino + Sensors Tutorial
+# Tutorial 2 - Arduino & Sensors
 
 In this tutorial we will learn how to use sensors along with an Arduino to percieve the environment. We will start by setting up your programming environment and end with a mini-project to better understand sensor fusion.
 
@@ -22,13 +22,13 @@ In this tutorial we will learn how to use sensors along with an Arduino to perci
 
 # Introduction
 
-The fundamental robotics loop consists of three sections: Sensing the environment, planning, and taking an action. This tutorial would focus on the first part of the loop. 
+The fundamental robotics loop consists of three sections: sensing the environment, planning, and taking an action. This tutorial will focus on the first part of the loop. 
 
 <p align="center">
     <img width="460" src="./images/robotics_loop.png">
 </p>
 
-As we would be dealing with an ultrasonic and a colour sensor, only these sensors would be explored. To process the raw signals provided by the sensors into meaningful data, we would use the Arduino Uno microcontroller.
+As we will be dealing with an ultrasonic and a colour sensor, only these sensors will be explored. To process the raw signals provided by the sensors into meaningful data, we will use the Arduino Uno microcontroller.
 
 #### Materials required
 
@@ -39,10 +39,10 @@ As we would be dealing with an ultrasonic and a colour sensor, only these sensor
 - Variety of jumper cables
 
 # Set up your Arduino environment
-Skip this step if you already have the arduino IDE installed. If you dont have the IDE:
+Skip this step if you already have the Arduino IDE installed. If you don't have the IDE:
 
 - Go to https://www.arduino.cc/en/software
-- Select the IDE suitable to your operating system.
+- Select the IDE suitable for your operating system.
 - Download and install the IDE.
 
 <p align="center">
@@ -75,7 +75,7 @@ void loop() {
     <img src="./images/port.jpeg">
 </p>
 
-Upload and run the arduino script and check if everything works!
+Upload and run the arduino script and check if everything works! The LED on the Arduino should turn on and off.
 
 <p align="center">
     <img src="./images/buttons.png">
@@ -92,10 +92,6 @@ An Arduino Uno has 14 digital I/O (input, output) pins and 6 analogue input pins
 
 Each pin type, whether it’s digital or analogue, has a different method associated with it to either read a signal going into it or write a signal as its output. In summary, these functions are:
 
-- **Serial.begin(int baud_rate)**: Sets the data rate in bits per second (baud) for serial data transmission. For communicating with Serial Monitor, make sure to use one of the baud rates listed in the menu at the bottom right corner of its screen. 
-
-- **Serial.println(val)**: Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). 
-
 - **int digitalRead(int pin)**: Reads a value from a digital pin. The value returned is either the constant HIGH or LOW.
 
 - **void digitalWrite(int pin, int value)**: Writes a value from a digital value (i.e. either HIGH or LOW) to the specified pin.
@@ -103,6 +99,12 @@ Each pin type, whether it’s digital or analogue, has a different method associ
 - **int analogRead(int pin)**: Reads an analogue voltage between 0 V and 5 V from an analogue pin (A0 to A5). The value returned is an integer between 0 and 1023, directly proportional to the voltage read - these values can vary alot at different times.
 
 - **void analogWrite(int pin, int value)**: Writes an analogue value between 0 and 255 to one of the PWM-enabled pins. This corresponds to the duty cycle of the PWM wave, 0 being always off and 255 being always on. Note that this is not the same range of values as an analogue read.
+
+Additionally, the Arduino can communicate with your computer over the USB cable using what is called Serial Communication. The two main functions for this are:
+
+- **Serial.begin(int baud_rate)**: Sets the data rate in bits per second (baud) for serial data transmission. For communicating with Serial Monitor, make sure to use one of the baud rates listed in the menu at the bottom right corner of its screen. 
+
+- **Serial.println(val)**: Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). 
 
 When you first begin a new project in Arduino, you are typically greeted with two functions that have been created for you, **setup()** and **loop()**. These are special functions that are required to make your Arduino program run.
 
@@ -339,7 +341,6 @@ void loop() {
 </p>
 
 ## How to use it
-We will be using the Arduino Uno as our microcontroller for this competition, therefore this tutorial will be using Arduino code.
 
 ### Step 1. Wiring the sensor up
 
@@ -354,7 +355,9 @@ S1  | Pin 5      | Used to scale output frequency |
 S2  | Pin 6      | Used to select which filter we apply. These two pin logic control which colour sensor light intensity is to be measured |
 S3  | Pin 7      | Used to select which filter we apply |
 
-From the table below, it can be seen that by using control pins S2 and S3 we can choose which photobodies to read from. For example, if I want to read from the red photodiode, I would set S2 and S3 LOW (0V on those pins).
+The sensor consists of 4 LEDs as a light source and an 8x8 array of photodiodes, with different colour filters attached to them (red, green, blue or clear). 
+
+From the table below, it can be seen that by using control pins S2 and S3 we can choose which photodiodes to read from. For example, if I want to read from the red photodiode, I would set S2 and S3 LOW (0V on those pins).
 
 S2  |  S3 | Photodiode Type   |
 --- | --- | ----------------- |
@@ -363,7 +366,7 @@ L   |  H  | Blue              |
 H   |  L  | Clear (no filter) |
 H   |  H  | Green             |
 
-Now with the hardware side, we can connect our sensor into the Arduino. The following diagram provides a guide of how the sensor should be connected in.
+Now, on the hardware side, we can connect our sensor into the Arduino. The following diagram provides a guide of how the sensor should be connected up:
 
 <p align="center">
     <img height="400" src="./images/clr_circuit.png">
@@ -372,7 +375,7 @@ Now with the hardware side, we can connect our sensor into the Arduino. The foll
 
 ### Step 2. The code
 
-To be able to print frequency values to the serial monitor we first start by defing the sensor pins and global variables.
+To be able to print frequency values to the serial monitor we first start by defining the sensor pins and global variables.
 
 ```C++
 #define S0 4
@@ -450,7 +453,7 @@ void loop() {
 }
 ```
 
-#### Procesing values
+#### Processing values
 We now have to think about turning the values we receive from the colour sensor into information that we understand and that we can use to make decisions for our robot. This means converting the frequencies into RGB values which we can use to figure out which colour it is. 
 
 To do this, we must first calibrate our sensor. Point the sensor into a direction where there is nothing in front of it and note down the values being printed.
