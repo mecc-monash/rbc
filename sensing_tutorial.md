@@ -17,8 +17,6 @@ In this tutorial we will learn how to use sensors along with an Arduino to perci
     
     4.2. [Calibration](#Calibration)
 
-5. [Workshop Challenge](#Workshop-Challenge)
-
 
 # Introduction
 
