@@ -13,7 +13,7 @@ In this tutorial we will learn how to use sensors along with an Arduino to perci
 
 4. [Colour Sensor](#Colour-Sensor)
     
-    4.1. [Processing values](#Processing-values)
+    4.1. [Procesing values](#Procesing-values)
     
     4.2. [Calibration](#Calibration)
 
@@ -41,12 +41,17 @@ Skip this step if you already have the Arduino IDE installed. If you don't have 
 
 - Go to https://www.arduino.cc/en/software
 - Select the IDE suitable for your operating system.
+- If you are in Windows avoid the Windows store version (the other two versions will work fine).
 - Download and install the IDE.
 
 <p align="center">
     <img src="./images/IDE.png">
 </p>
-
+# Troubleshooting 
+If you are plugging in your Arduino and the COM is not recognised try these steps: (For Windows)
+1. Open Arduino and check you have selected the correct board under Tools -> Board -> Arduino Uno
+2. Open Device manager and scroll down to "Ports (Com and LPT)" Is the Arduino there? Are you selecting the correct port? 
+3. Last option: Download the driver from here and follow the steps: https://electronics-project-hub.com/arduino-not-detected-and-driver-issues-solved/
 Once downloaded, copy the following code and paste it in the ```code goes here``` section.
 
 ```C++
@@ -364,7 +369,7 @@ L   |  H  | Blue              |
 H   |  L  | Clear (no filter) |
 H   |  H  | Green             |
 
-Now, on the hardware side, we can connect our sensor into the Arduino. The following diagram provides a guide of how the sensor should be connected up, but **don't follow it exactly**. **You will need to check that the code matches the pins that you connect to!**
+Now, on the hardware side, we can connect our sensor into the Arduino. The following diagram provides a guide of how the sensor should be connected up:
 
 <p align="center">
     <img height="400" src="./images/clr_circuit.png">
