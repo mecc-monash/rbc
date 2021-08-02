@@ -471,7 +471,7 @@ So putting the colour red in front of the sensor at the distance of your choice 
 You can begin noting the sensor outputs for each particular colour that you’ll encounter during the competition and realise that each colour has it’s own unique RGB signature. Let’s say that for a shade of red we witness low frequency readings of the red and green photodiodes. We could then develop code that perhaps looks for the lowest frequency between the RGB outputs, or perhaps see if the outputs fall within a certain range of values unique to that shade of red. This is the simplest form of software you could develop for the
 competition and still see accurate results - but we can do better.
 
-The RGB image pixel values are mapped from 0 to 255, but our frequencies are different depending on which scaling we use, so we must map our frequency values to our RGB values. To do this, we can use our **map()** function and add it after we read in all our frequencies.
+The range of outputs that you get for each colour is different, but it'd be nice if they were all in the same range so we could compare them more easily. A good way of doing this is using the **map()** function.
 
 ```C++
 
@@ -479,13 +479,15 @@ map(value, old min, old max, new min, new max)
 
 ```
 
-For example, let’s say we get a value of 70 with nothing in front of the sensor, and a value of 25 with a red filter, we would type the following line into the appropriate section (after reading in the frequency value)
+For example, let’s say we get a value of 70 with nothing in front of the sensor, and a value of 25 with a red filter, we would type the following line into the appropriate section (after reading in the frequency value):
 
 ```C++
 
-new frequency = map(frequency, 25, 70, 0, 255)
+int new_frequency = map(frequency, 25, 70, 0, 255)
 
 ```
+
+When the sensor outputs 25, new_frequency will be 0. When it outputs 70, new_frequency will be 255. And in-between values will be in-between 0 and 255.
 
 Do the same with green and blue. This will then produce an appropriate RGB value, we can then go online to any RGB value website (there’s one suggested in the references) and select the values that you need for the competition. Make sure you test the accuracy of your calibration with various colours to determine how well it works. If it doesn’t work well, you might need to redo your calibration.
 
