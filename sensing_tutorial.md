@@ -464,15 +464,21 @@ void loop() {
 ```
 
 #### Processing values
-We now have to think about turning the values we receive from the colour sensor into information that we understand and that we can use to make decisions for our robot. This means converting the frequencies into RGB values which we can use to figure out which colour it is. 
+We now have to think about turning the values we receive from the colour sensor into information that we understand and that we can use to make decisions for our robot. 
 
-To do this, we must first calibrate our sensor. Point the sensor into a direction where there is nothing in front of it and note down the values being printed.
+This step is a little bit more open-ended and will require you to investigate what the colour sensor is doing.
+
+Task:
+- Place the colour sensor over one the pieces of tape on the table
+- Over serial, print out whether it is looking at red, blue, green or white (no tape)
+
+To start, point the sensor into a direction where there is nothing in front of it and note down the values being printed.
 
 <p align="center">
     <img height="400" src="./images/clr_calibration.png">
 </p>
 
-After noting down those values, we now put a colour in front of the sensor. According to the datasheet, the best sensing range is at 10mm, too close or too far will compromise the accuracy of the sensor. It is up to you to choose a distance that suits your build, but just make sure it’s consistent, or else the sensor will not
+After noting down those values, we now put a colour in front of the sensor. According to the datasheet, the best sensing range is at 10mm: too close or too far will compromise the accuracy of the sensor. It is up to you to choose a distance that suits your build, but just make sure it’s consistent, or else the sensor will not
 work properly. 
 
 So putting the colour red in front of the sensor at the distance of your choice will produce different red frequency values. Note that value down as well.
@@ -485,7 +491,7 @@ The range of outputs that you get for each colour is different, but it'd be nice
 
 ```C++
 
-map(value, old min, old max, new min, new max)
+map(int value, int old_min, int old_max, int new_min, int new_max)
 
 ```
 
@@ -493,11 +499,8 @@ For example, let’s say we get a value of 70 with nothing in front of the senso
 
 ```C++
 
-int new_frequency = map(frequency, 25, 70, 0, 255)
+int new_frequency = map(frequency, 25, 70, 255, 0)
 
 ```
 
-When the sensor outputs 25, new_frequency will be 0. When it outputs 70, new_frequency will be 255. And in-between values will be in-between 0 and 255.
-
-Do the same with green and blue. This will then produce an appropriate RGB value, we can then go online to any RGB value website (there’s one suggested in the references) and select the values that you need for the competition. Make sure you test the accuracy of your calibration with various colours to determine how well it works. If it doesn’t work well, you might need to redo your calibration.
-
+When the sensor outputs 25, new_frequency will be 255. When it outputs 70, new_frequency will be 0. And in-between values will be in-between 0 and 255. So what the `map` function does is both scale the output so it is in the new range, and flip it, since we have passed in a large value as min and low value as max.
