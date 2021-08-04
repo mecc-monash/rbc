@@ -504,3 +504,17 @@ int new_frequency = map(frequency, 25, 70, 255, 0)
 ```
 
 When the sensor outputs 25, new_frequency will be 255. When it outputs 70, new_frequency will be 0. And in-between values will be in-between 0 and 255. So what the `map` function does is both scale the output so it is in the new range, and flip it, since we have passed in a large value as min and low value as max.
+
+# Workshop Challenge (optional)
+Now that you know how to use the ultrasonic and colour sensor individually, here's a small challenge which requires you to use them in conjuction. 
+
+### Task
+A demonstrator would place a piece of paper in front of the ultrasonic sensor at different distances (close, medium, and far). Your task is to detect this distance and light an RGB-LED with the appropriate colour as shown in the table below.
+
+Distance | Distance (cm)    |  LED  |
+---------| ---------------- | ----- | 
+Close    |  0-5 cm          |  RED  |
+Medium   |  6-10 cm         | GREEN |
+Far      |  11-15 cm        | BLUE  |
+
+Now that an LED is lit up with one of the above colours, you have to use the LED as an input to the colour sensor, guess which colour has been lit up, and hence print the distance to the terminal.
