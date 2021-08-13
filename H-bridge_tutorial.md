@@ -17,8 +17,7 @@ In the rest of this of this tutorial we will learn about motor drivers as well a
 A H-Bridge is a circuit which can be used to control the direction of a DC motor. It contains four switching elements (usually transistors) which together with a motor form a H-like configuration. The switching elements form "complementary" pairs which allows the direction of current flow to the motor to be reversed if desired. In other words, the H-Bridge acts as a set of digitally controlled switches which can be used to control the voltage across a motor. 
 
 <p align="center">
-    <img height="200" src="images/motor_driver/Single_H_bridge.png
-    ">
+    <img height="200" src="images/motor_driver/Single_H_bridge.png">
 </p> 
 
 The L298N is a dual H-Bridge motor driver which allows both the speed and direction of two DC-motors to be controlled at the same time. But wait a minute, speed? (don't worry we'll get onto this later)
@@ -26,8 +25,7 @@ The L298N is a dual H-Bridge motor driver which allows both the speed and direct
 Shown below is a layout of the L298N along with pin and terminal defintions. 
 
 <p align="center">
-    <img height="200" src="images/motor_driver/hbridge_layout.jpg
-    ">
+    <img height="200" src="images/motor_driver/hbridge_layout.jpg">
 </p> 
 
 Name | Function |
@@ -68,8 +66,7 @@ and nothing is connected.
 
 
 <p align="center">
-    <img height="200" src="images/motor_driver/voltage_normal.png
-    ">
+    <img height="200" src="images/motor_driver/voltage_normal.png">
 </p> 
 
 - To be able to supply enough voltage to the motor using the H-Bridge, we need to ensure we are supplying at least 1.4V higher than the voltage rating for the motor. The voltage drop of the input is a result of the switching transistors in the circuit.
@@ -77,14 +74,13 @@ and nothing is connected.
 4) Connect the banana leads to one of the display sides + and - terminals. Adjust the output voltage to 4.4V. Attach the wires from the DC power supply to the Vcc and GND input screw terminals.
 
 <p align="center">
-    <img height="200" src="images/motor_driver/Knobs.png
-    ">
+    <img height="200" src="images/motor_driver/Knobs.png">
 </p> 
 
-5.) Shown below is the pin connections between the Arduino and the H-Bridge. You will need male-to-male jumper wires for the first two pin connections and male-to-female jumper wires for the others. 
+5) Shown below is the pin connections between the Arduino and the H-Bridge. You will need male-to-male jumper wires for the first two pin connections and male-to-female jumper wires for the others. 
 
 Arduino | L298N 
---- | ---------- 
+--- | --------
 5V | +5V 
 GND | GND 
 Pin 9 | ENA  
@@ -140,8 +136,7 @@ Now that you understand how to control the direction of a motor using a H-Bridge
 Pulse width modulation or PWM is a technique that is used to vary the effective voltage supplied to a load. This is achieved by varying the duty cycle of the input voltage, which is percentage of time the voltage level is high within one period. 
 
 <p align="center">
-    <img height="400" src="images/motor_driver/PWM.png
-    ">
+    <img height="400" src="images/motor_driver/PWM.png">
 </p>
 
 For example, imagine we are powering a DC motor with a power source. With the power source on, at first the motor will start to speed up. However, because motors do not respond immediately, it will take some time to reach full speed. Before the motor reaches full speed, if we disconnect power, the motor will start to slow down. If we keep switching the power source on and off quickly enough, the motor will run at some speed between 0 and full speed. This describes exactly what a PWM controller does. It switches the motor on in a series of pulses and controls the motor's speed by varying (modulating) the width of the pulses.  
