@@ -66,7 +66,7 @@ and nothing is connected.
 
 
 <p align="center">
-    <img height="200" src="images/motor_driver/voltage_normal.png">
+    <img height="300" src="images/motor_driver/voltage_normal.png">
 </p> 
 
 - To be able to supply enough voltage to the motor using the H-Bridge, we need to ensure we are supplying at least 1.4V higher than the voltage rating for the motor. The voltage drop of the input is a result of the switching transistors in the circuit.
