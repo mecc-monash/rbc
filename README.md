@@ -7,6 +7,6 @@ This site will be the location of your tutorials in the weeks leading up to comp
 
 [Tutorial 1: Intro to CAD](./solidworks_tutorial.md)
 
-[Tutorial 2: Ultrasonic Sensors](./ultrasonics_tutorial.md)
+[Tutorial 2: Ultrasonic and Colour Sensors](./sensing_tutorial.md)
 
 [Tutorial 3: H-Bridge Motor Driver](./H-bridge_tutorial.md)
