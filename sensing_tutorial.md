@@ -358,7 +358,7 @@ Pin | on arduino | Description |
 --- | ---------- | ----------- |
 Vcc |  5V        | Input power, required to provide power to sensor. |
 Gnd |  Gnd       | Ground pin, used as refrence voltage |
-OC  |  Gnd       | Output enable, need to be pulled low in order to enable the sensor |
+OE  |  Gnd       | Output enable, need to be pulled low in order to enable the sensor |
 OUT |  Pin 8    | Output of the sensor, a PWM signal (variable frequency) depending of which colour is sensed |
 S0  | Pin 4      | Used to scale output frequency - keep reading for an expression |
 S1  | Pin 5      | Used to scale output frequency |
