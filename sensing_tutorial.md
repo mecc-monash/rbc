@@ -61,6 +61,8 @@ If you are plugging in your Arduino and the COM is not recognised try these step
 
 Once downloaded, copy the following code and paste it in the ```code goes here``` section.
 
+Read through the code below, along with the comments, and see if you can reason about how the code works.
+
 ```C++
 void setup() {
   Serial.begin(9600);
@@ -93,10 +95,16 @@ Upload and run the arduino script and check if everything works! The LED on the 
 
 **NOTE: Make sure you have the right COM port, baud rate, and board selected. If you have any problems setting the environment up, ask a demonstrator.**
 
-## Arduino theory
-Reading the code you used earlier, did you figure out the basics arduino I/O (Input/Output) code? 
+As a reminder, they should be - 
 
-If you need an Arduino intro, this section explains the Arduino and it's code in detail. Skip this part if you understand the basics.
+- COM PORT: whatever is available
+- BAUD RATE: 9600
+- BOARD: Arduino Uno
+
+## Arduino theory
+How did you go reading through the code above? 
+
+If you need an Arduino intro, this section explains the Arduino and it's code in detail. Skip this part if you've worked with Arduinos before.
 
 An Arduino Uno has 14 digital I/O (input, output) pins and 6 analogue input pins. Digital pins (0-13) can be in 2 states, either HIGH (5V) or LOW (0V) and are usually used to drive outputs. Analogue pins (A0-A5) can be used for analogue signals, such as colour and light sensors. Notice that some of the pins are marked (PWM ∼), pins 3, 5, 6, 9, 10, and 11. These pins allow you to use Pulse Width Modulation (PWM ∼), which will be discussed in the next tutorial. This feature allows you to control the speed of your motors or the brightness of an LED.
 
@@ -112,15 +120,15 @@ Each pin type, whether it’s digital or analogue, has a different method associ
 
 Additionally, the Arduino can communicate with your computer over the USB cable using what is called Serial Communication. The two main functions for this are:
 
-- **Serial.begin(int baud_rate)**: Sets the data rate in bits per second (baud) for serial data transmission. For communicating with Serial Monitor, make sure to use one of the baud rates listed in the menu at the bottom right corner of its screen. 
+- **Serial.begin(int baud_rate)**: Sets the data rate in bits per second (baud) for serial data transmission. For communicating with Serial Monitor, make sure to use one of the baud rates listed in the menu at the bottom right corner of its screen. You only need to run this function once, in the setup() function of your Arduino program. Common baud rates are 9600 baud and 115200 baud. 
 
 - **Serial.println(val)**: Prints data to the serial port as human-readable ASCII text followed by a carriage return character (ASCII 13, or '\r') and a newline character (ASCII 10, or '\n'). 
 
 When you first begin a new project in Arduino, you are typically greeted with two functions that have been created for you, **setup()** and **loop()**. These are special functions that are required to make your Arduino program run.
 
-The **setup()** block only runs once when the board is powered on. So any code that is placed inside the setup() block will be executed exactly once. For this reason, the setup() method is generally used to set up your program, for example to define pin mode (discussed below) or write any initial values to these pins.
+The **setup()** block only runs once when the board is powered on. So any code that is placed inside the setup() block will be executed exactly once. For this reason, the setup() method is generally used to set up your program, for example to define pin modes (discussed below), initialize the serial port, or write any initial values to these pins.
 
-The **loop()** block is executed repeatedly for the duration of program after the setup() block has finished. It is essentially an infinite loop and stops running only if you power down the device. This method is where the bulk of your program goes, from reading sensors to controlling motors. It is good practice to break down the different aspects of your code into individual functions and call those in loop(). This will make your code much cleaner and more modular, making it easier to debug.
+The **loop()** block is executed repeatedly for the duration of program after the setup() block has finished. It is an infinite loop and stops running only if you power down the device. This method is where the bulk of your program goes, from reading sensors to controlling motors. It is good practice to break down the different aspects of your code into individual functions and call those in loop(). This will make your code much cleaner and more modular, making it easier to debug.
 
 # Ultrasonic Sensor
 
@@ -130,13 +138,13 @@ The **loop()** block is executed repeatedly for the duration of program after th
 
 #### Pins to remember
 
-Vcc: 5V to power the sensor
+VCC: 5V to power the sensor
 
 Trig: Signals the sensor to send a pulse
 
 Echo: Output the time in microseconds
 
-Gnd: Ground
+GND: Ground
 
 ## How it works
 The transmitter of the ultrasonic sensor emits a signal at 40,000 Hz in the form of an 8 cycle sonic burst. This signal travels through air at the speed of sound. Therefore, considering the travel time and the speed of the sound you can calculate the distance!
@@ -147,7 +155,7 @@ The transmitter of the ultrasonic sensor emits a signal at 40,000 Hz in the form
 
 
 ## How to use it
-We will be using the Arduino Uno as our microcontroller for this competition, therefore this tutorial will be using Arduino code.
+We will be using the Arduino Uno as our microcontroller for this competition. Therefore, we'll be running through this tutorial using Arduino Uno boards.
 
 ### Step 1. Wiring the sensor up
 
@@ -179,7 +187,7 @@ long duration;
 int distance;
 ```
 
-Remember that the Arduino requires two functions for the script to work, a ```void setup()``` and a ```void loop()```. The setup functions runs once when the code is uploaded, while the loop function runs infinitely until the arduino looses power.
+Remember that the Arduino requires two functions for the script to work, a ```void setup()``` and a ```void loop()```. The setup functions runs once when the code is uploaded, while the loop function runs infinitely.
 
 Create the setup function to set pin modes and establish serial comminucation with the serial moitor.
 
@@ -248,7 +256,7 @@ void loop()
 }
 ```
 
-But what you will get from the Echo pin will be double that number because the sound wave needs to travel forward and bounce backward.  So in order to get the distance in cm we need to multiply the received travel time value from the echo pin by 0.034 cm/us (speed of souund) and divide it by 2.
+But what you will get from the Echo pin will be double that number because the sound wave needs to travel forward to the target, bounce backward and return to the sensor.  So in order to get the distance in cm we need to multiply the received travel time value from the echo pin by 0.034 cm/us (speed of souund) **and*** divide it by 2.
 
 ```C++
 void loop()
@@ -346,6 +354,8 @@ void loop() {
 
 # Colour Sensor
 
+We will also be using colour sensors for the competition. In this section, we run through the basics of using them to detect light and colour. 
+
 <p align="center">
     <img width="460" src="./images/colour_sensor.jpeg">
 </p>
@@ -356,10 +366,10 @@ void loop() {
 
 Pin | on arduino | Description |
 --- | ---------- | ----------- |
-Vcc |  5V        | Input power, required to provide power to sensor. |
-Gnd |  Gnd       | Ground pin, used as refrence voltage |
-OE  |  Gnd       | Output enable, need to be pulled low in order to enable the sensor |
-OUT |  Pin 8    | Output of the sensor, a PWM signal (variable frequency) depending of which colour is sensed |
+Vcc | 5V         | Input power, required to provide power to sensor. |
+Gnd | Gnd        | Ground pin, used as refrence voltage |
+OE  | Gnd        | Output enable, need to be pulled low in order to enable the sensor |
+OUT | Pin 8      | Output of the sensor, a PWM signal (variable frequency) depending of which colour is sensed |
 S0  | Pin 4      | Used to scale output frequency - keep reading for an expression |
 S1  | Pin 5      | Used to scale output frequency |
 S2  | Pin 6      | Used to select which filter we apply. These two pin logic control which colour sensor light intensity is to be measured |
@@ -518,3 +528,15 @@ Medium   |  6-10 cm         | GREEN |
 Far      |  11-15 cm        | BLUE  |
 
 Now that an LED is lit up with one of the above colours, you have to use the LED as an input to the colour sensor, guess which colour has been lit up, and hence print the distance to the terminal.
+
+Example - 
+
+1. A demonstrator holds up a piece of paper approximately 8cm infront of your ultrasonic sensor. 
+
+2. Your program should first light up the RGB led GREEN, to indicate the distance is betwene 6-10cm. 
+
+3. Then, the colour sensor pointing at the RGB led should be triggered to detect the colour as GREEN. 
+
+4. Finally, you should take the detected colour and print it out to the serial monitor as follows - 
+
+    "Colour reading: green; Distance detected: medium"
