@@ -509,6 +509,9 @@ For example, let’s say we get a value of 70 with nothing in front of the senso
 
 ```C++
 
+// maps 25->255, 70->0 and interpolates between. 
+// we invert the final range to make the dominant colour have the HIGHEST value (by default it's the LOWEST value).
+// this line must run continuously inside the loop() function of your code.
 int new_frequency = map(frequency, 25, 70, 255, 0)
 
 ```
